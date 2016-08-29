@@ -42,9 +42,12 @@ namespace SetDemo
 
             Console.WriteLine($"setA.UnionWith(setB): {setA.UnionWith(setB)}");
             Console.WriteLine($"setA.UnionWith(setC): {setA.UnionWith(setC)}");
+            Console.WriteLine($"setA.UnionWith(new Set<int>()): {setA.UnionWith(new Set<int>())}");
+            Console.WriteLine($"new Set<int>().UnionWith(new Set<int>()): {new Set<int>().UnionWith(new Set<int>())}");
             Console.WriteLine();
 
             Console.WriteLine($"setA.IntersectionWith(setB): {setA.IntersectionWith(setB)}");
+            Console.WriteLine($"setA.IntersectionWith(new Set<int>()): {setA.IntersectionWith(new Set<int>())}");
             Console.WriteLine();
         }
     }
