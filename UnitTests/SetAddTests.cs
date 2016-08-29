@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Set;
 
@@ -57,6 +58,32 @@ namespace UnitTests
             int actualLength = set.Count;
 
             Assert.AreEqual(expectedLength, actualLength);
+        }
+
+        // Add multiple objects
+
+        [TestMethod]
+        public void Can_Add_Array()
+        {
+            var set = new Set<int>();
+            int[] input = {1, 2, 3, 4, 5};
+            var expected = new Set<int> {1, 2, 3, 4, 5};
+
+            set.Add(input);
+
+            Assert.IsTrue(set.EqualTo(expected));
+        }
+
+        [TestMethod]
+        public void Can_Add_List()
+        {
+            var set = new Set<int>();
+            var input = new List<int> {1, 2, 3, 4, 5};
+            var expected = new Set<int> { 1, 2, 3, 4, 5 };
+
+            set.Add(input);
+
+            Assert.IsTrue(set.EqualTo(expected));
         }
     }
 }

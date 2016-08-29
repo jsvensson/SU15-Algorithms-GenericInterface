@@ -28,6 +28,14 @@ namespace Set
             }
         }
 
+        public void Add(IEnumerable<T> items)
+        {
+            foreach (T item in items)
+            {
+                Add(item);
+            }
+        }
+
         public void Remove(T item)
         {
             set.Remove(item);
