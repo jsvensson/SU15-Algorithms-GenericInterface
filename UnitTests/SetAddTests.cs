@@ -85,5 +85,17 @@ namespace UnitTests
 
             Assert.IsTrue(set.EqualTo(expected));
         }
+
+        [TestMethod]
+        public void Can_Add_Via_Delegate()
+        {
+            var set = new Set<int>();
+            int[] input = {1, 2, 3, 4, 5};
+            var expected = new Set<int> {2, 4};
+
+            set.Add(input, (i) => i % 2 == 0);
+
+            Assert.IsTrue(set.EqualTo(expected));
+        }
     }
 }

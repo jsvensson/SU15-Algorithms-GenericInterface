@@ -36,6 +36,17 @@ namespace Set
             }
         }
 
+        public void Add(IEnumerable<T> items, Func<T, bool> filter)
+        {
+            foreach (T item in items)
+            {
+                if (filter(item))
+                {
+                    Add(item);
+                }
+            }
+        }
+
         public void Remove(T item)
         {
             set.Remove(item);
