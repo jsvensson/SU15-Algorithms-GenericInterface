@@ -97,5 +97,18 @@ namespace UnitTests
 
             Assert.IsTrue(set.EqualTo(expected));
         }
+
+        // Add Set
+
+        [TestMethod]
+        public void Can_Add_Set()
+        {
+            var set = new Set<Set<int>>();
+            var newSet = new Set<int> {1, 2, 3};
+
+            set.Add(newSet);
+
+            Assert.IsTrue(set.Contains(newSet));
+        }
     }
 }
