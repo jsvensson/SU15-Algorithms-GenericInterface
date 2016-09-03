@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using DeepEqual.Syntax;
 
 namespace Set
 {
@@ -66,15 +68,13 @@ namespace Set
 
         public bool Contains(T item)
         {
-            foreach (T i in set)
+            // Do a deep equality check if T is enumerable
+            if (item is IEnumerable)
             {
-                if (item.Equals(i))
-                {
-                    return true;
-                }
+                return set.Any(i => item.IsDeepEqual(i));
             }
 
-            return false;
+            return Enumerable.Contains(set, item);
         }
 
         public ISet<T> UnionWith(ISet<T> other)

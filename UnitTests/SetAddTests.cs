@@ -60,6 +60,19 @@ namespace UnitTests
             Assert.AreEqual(expectedLength, actualLength);
         }
 
+        [TestMethod]
+        public void Does_Not_Add_Equivalent_Collections()
+        {
+            var set = new Set<int[]>();
+            int[] a = { 1, 2, 3 };
+            int[] b = { 1, 2, 3 };
+
+            set.Add(a);
+            set.Add(b);
+
+            Assert.IsTrue(set.Count == 1);
+        }
+
         // Add multiple objects
 
         [TestMethod]
